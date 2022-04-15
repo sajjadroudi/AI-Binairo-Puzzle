@@ -15,7 +15,7 @@ public class Cell {
 
     public Cell() {
         this.isDefault = false;
-        domain.addAll(Arrays.asList(Value.values()));
+        domain.addAll(Value.valueSet());
     }
 
     public void setValue(Value value) {

@@ -12,6 +12,10 @@ public class Board {
         }
     }
 
+    public int sideCount() {
+        return board.length;
+    }
+
     public Cell get(int row, int col) {
         return board[row][col];
     }
@@ -28,12 +32,27 @@ public class Board {
         board[row][col].setValue(value);
     }
 
+    public void removeValue(int row, int col) {
+        setValue(row, col, null);
+    }
+
     public void addValueToDomain(int row, int col, Value value) {
         board[row][col].addToDomain(value);
     }
 
     public void removeValueFromDomain(int row, int coll, Value value) {
         board[row][coll].removeFromDomain(value);
+    }
+
+    public boolean isComplete() {
+        for(int row = 0; row < board.length; row++) {
+            for(int col = 0; col < board[row].length; col++) {
+                if(!board[row][col].hasValue())
+                    return false;
+            }
+        }
+
+        return true;
     }
 
     @Override
