@@ -2,13 +2,6 @@ import java.util.ArrayList;
 import java.util.Arrays;
 
 public class State {
-    private static char blackCircle = '\u26AB';
-    private static char whiteCircle = '\u26AA';
-    private static char blackSquare = '\u2B1B';
-    private static char whiteSquare = '\u2B1C';
-    private static char line = '\u23E4';
-
-
     private ArrayList<ArrayList<String>> board;
     private ArrayList<ArrayList<ArrayList<String>>> domain;
     private int n;
@@ -82,11 +75,11 @@ public class State {
         for (ArrayList<String> strings : this.getBoard()) {
             for (String s : strings) {
                 switch (s) {
-                    case "w":System.out.print(whiteCircle + "  "); break;
-                    case "W":System.out.print(whiteSquare + "  "); break;
-                    case "b":System.out.print(blackCircle + "  "); break;
-                    case "B":System.out.print(blackSquare + "  "); break;
-                    default: System.out.print(line + "" + line + "  "); break;
+                    case "w" -> System.out.print(Constants.WHITE_CIRCLE + "  ");
+                    case "W" -> System.out.print(Constants.WHITE_SQUARE + "  ");
+                    case "b" -> System.out.print(Constants.BLACK_CIRCLE + "  ");
+                    case "B" -> System.out.print(Constants.BLACK_SQUARE + "  ");
+                    default -> System.out.print(Constants.LINE + "" + Constants.LINE + "  ");
                 }
             }
             System.out.println("\n");

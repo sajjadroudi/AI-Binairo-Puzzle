@@ -1,0 +1,4 @@
+enum Value {
+    WHITE,
+    BLACK
+}
