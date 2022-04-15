@@ -36,4 +36,16 @@ public class Board {
         board[row][coll].removeFromDomain(value);
     }
 
+    @Override
+    public String toString() {
+        var builder = new StringBuilder();
+        for (Cell[] cells : board) {
+            for (Cell cell : cells) {
+                builder.append(cell).append(" ");
+            }
+            builder.append(Constants.LINE);
+        }
+
+        return builder.toString();
+    }
 }
