@@ -44,6 +44,10 @@ public class Board {
         board[row][coll].removeFromDomain(value);
     }
 
+    public Value[] getDomain(int row, int col) {
+        return board[row][col].getDomain();
+    }
+
     public boolean isComplete() {
         for(int row = 0; row < board.length; row++) {
             for(int col = 0; col < board[row].length; col++) {

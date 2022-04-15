@@ -55,6 +55,10 @@ public class Cell {
         return isDefault;
     }
 
+    public Value[] getDomain() {
+        return domain.toArray(new Value[0]);
+    }
+
     @Override
     public String toString() {
         if(isDefault) {
