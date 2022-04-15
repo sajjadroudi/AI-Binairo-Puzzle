@@ -1,4 +1,4 @@
-public class EqualCirclesCondition implements ConditionSatisfication {
+public class EqualCirclesConstraint implements ConstraintSatisfication {
 
     @Override
     public boolean doesSatisfy(Board board) {

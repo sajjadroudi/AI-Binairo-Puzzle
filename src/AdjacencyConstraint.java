@@ -1,15 +1,15 @@
 import java.util.HashSet;
 import java.util.Set;
 
-public class AdjacencyCondition implements ConditionSatisfication {
+public class AdjacencyConstraint implements ConstraintSatisfication {
 
     private final int maxAcceptableAdjacentCircles;
 
-    public AdjacencyCondition(int maxAcceptableAdjacentCircles) {
+    public AdjacencyConstraint(int maxAcceptableAdjacentCircles) {
         this.maxAcceptableAdjacentCircles = maxAcceptableAdjacentCircles;
     }
 
-    public AdjacencyCondition() {
+    public AdjacencyConstraint() {
         this(2);
     }
 
