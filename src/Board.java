@@ -48,6 +48,10 @@ public class Board {
         return board[row][col].getDomain();
     }
 
+    public int getDomainSize(int row, int col) {
+        return getDomain(row, col).length;
+    }
+
     public boolean isComplete() {
         for(int row = 0; row < board.length; row++) {
             for(int col = 0; col < board[row].length; col++) {
