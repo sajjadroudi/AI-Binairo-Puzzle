@@ -17,24 +17,24 @@ public class AdjacencyConstraint implements ConstraintSatisfication {
     public boolean doesSatisfy(Board board) {
         for(int row = 0; row < board.sideCount(); row++) {
             for(int col = 0; col < board.sideCount(); col++) {
-                Set<Cell> cells = new HashSet<>();
+                Set<Value> values = new HashSet<>();
                 for(int i = 0; i <= maxAcceptableAdjacentCircles; i++) {
-                    var value = board.get(row + i, col);
+                    var value = board.getValueOrNull(row + i, col);
                     if(value != null)
-                        cells.add(value);
+                        values.add(value);
                 }
 
-                if(cells.size() == 1)
+                if(values.size() == 1)
                     return false;
 
-                cells.clear();
+                values.clear();
                 for(int i = 0; i <= maxAcceptableAdjacentCircles; i++) {
-                    var value = board.get(row, col + i);
+                    var value = board.getValueOrNull(row, col + i);
                     if(value != null)
-                        cells.add(value);
+                        values.add(value);
                 }
 
-                if(cells.size() == 1)
+                if(values.size() == 1)
                     return false;
             }
         }

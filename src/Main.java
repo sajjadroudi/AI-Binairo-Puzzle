@@ -30,8 +30,9 @@ public class Main {
             e.printStackTrace();
         }
 
-        Problem problem = new Problem(board);
-
+        ProblemSolver solver = new ProblemSolver();
+        SolutionResult result = solver.solve(board);
+        System.out.println(result);
     }
 
 }

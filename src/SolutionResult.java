@@ -22,4 +22,11 @@ public class SolutionResult {
         return new SolutionResult(null);
     }
 
+    @Override
+    public String toString() {
+        if(isFailed())
+            return "No solution!";
+
+        return board.toString();
+    }
 }

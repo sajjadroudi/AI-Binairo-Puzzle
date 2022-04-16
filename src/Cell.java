@@ -67,6 +67,8 @@ public class Cell {
             } else {
                 return String.valueOf(Constants.BLACK_SQUARE);
             }
+        } else if(currentValue == null) {
+            return "-";
         } else {
             return switch (currentValue) {
                 case WHITE -> String.valueOf(Constants.WHITE_CIRCLE);

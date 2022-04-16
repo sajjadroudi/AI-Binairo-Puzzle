@@ -28,6 +28,14 @@ public class Board {
         return board[row][col].getValue();
     }
 
+    public Value getValueOrNull(int row, int col) {
+        try {
+            return getValue(row, col);
+        } catch (Exception e) {
+            return null;
+        }
+    }
+
     public void setValue(int row, int col, Value value) {
         board[row][col].setValue(value);
     }
@@ -40,8 +48,10 @@ public class Board {
         board[row][col].addToDomain(value);
     }
 
-    public void removeValueFromDomain(int row, int coll, Value value) {
-        board[row][coll].removeFromDomain(value);
+    public void removeValueFromDomain(int row, int col, Value value) {
+        if(isValidCoordinates(row, col)) {
+            board[row][col].removeFromDomain(value);
+        }
     }
 
     public Value[] getDomain(int row, int col) {
@@ -63,6 +73,16 @@ public class Board {
         return true;
     }
 
+    public Board copy() {
+        Board copy = new Board(sideCount());
+        for(int row = 0; row < board.length; row++) {
+            for(int col = 0; col < board[row].length; col++) {
+                copy.board[row][col] = board[row][col];
+            }
+        }
+        return copy;
+    }
+
     @Override
     public String toString() {
         var builder = new StringBuilder();
@@ -70,9 +90,13 @@ public class Board {
             for (Cell cell : cells) {
                 builder.append(cell).append(" ");
             }
-            builder.append(Constants.LINE);
+            builder.append("\n");
         }
 
         return builder.toString();
+    }
+
+    private boolean isValidCoordinates(int row, int col) {
+        return row < sideCount() && row >= 0 && col < sideCount() && col >= 0;
     }
 }
