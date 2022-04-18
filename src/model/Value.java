@@ -1,8 +1,10 @@
+package model;
+
 import java.util.Arrays;
 import java.util.HashSet;
 import java.util.Set;
 
-enum Value {
+public enum Value {
     WHITE,
     BLACK;
 

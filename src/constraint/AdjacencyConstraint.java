@@ -1,5 +1,7 @@
-import java.util.HashSet;
-import java.util.Set;
+package constraint;
+
+import model.Board;
+import model.Value;
 
 public class AdjacencyConstraint implements ConstraintSatisfication {
 

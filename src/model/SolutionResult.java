@@ -1,3 +1,5 @@
+package model;
+
 public class SolutionResult {
 
     private final Board board;

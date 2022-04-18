@@ -1,3 +1,7 @@
+package constraint;
+
+import model.Board;
+
 public class UniqueCellAndColumnConstraint implements ConstraintSatisfication {
 
     @Override

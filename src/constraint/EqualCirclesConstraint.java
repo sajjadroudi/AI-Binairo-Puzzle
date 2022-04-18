@@ -1,3 +1,8 @@
+package constraint;
+
+import model.Board;
+import model.Value;
+
 public class EqualCirclesConstraint implements ConstraintSatisfication {
 
     @Override

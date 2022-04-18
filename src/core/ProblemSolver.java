@@ -1,4 +1,15 @@
-import jdk.swing.interop.SwingInterOpUtils;
+package core;
+
+import constraint.AdjacencyConstraint;
+import constraint.ConstraintSatisfication;
+import constraint.EqualCirclesConstraint;
+import constraint.UniqueCellAndColumnConstraint;
+import heuristic.LcvHeuristic;
+import heuristic.MrvHeuristic;
+import model.Board;
+import model.SolutionResult;
+import model.Value;
+import utils.NoSolutionException;
 
 public class ProblemSolver {
 

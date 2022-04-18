@@ -1,3 +1,5 @@
+package core;
+
 public class Constants {
     public static final char BLACK_CIRCLE = '\u26AB';
     public static final char WHITE_CIRCLE = '\u26AA';

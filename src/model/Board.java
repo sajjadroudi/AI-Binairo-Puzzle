@@ -1,3 +1,5 @@
+package model;
+
 public class Board {
 
     private final Cell[][] board;

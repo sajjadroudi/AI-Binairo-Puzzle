@@ -1,3 +1,9 @@
+package heuristic;
+
+import model.Board;
+import model.Coordinates;
+import model.Value;
+
 import java.util.List;
 
 public class LcvHeuristic implements Heuristic {

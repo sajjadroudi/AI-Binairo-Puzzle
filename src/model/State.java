@@ -1,3 +1,7 @@
+package model;
+
+import core.Constants;
+
 import java.util.ArrayList;
 import java.util.Arrays;
 

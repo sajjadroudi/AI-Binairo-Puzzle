@@ -1,3 +1,9 @@
+package core;
+
+import model.Board;
+import model.Coordinates;
+import model.Value;
+
 public class ForwardCheckingApplier {
 
     public boolean applyForwardChecking(Board board, Coordinates coordinates) {

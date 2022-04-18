@@ -1,3 +1,9 @@
+package heuristic;
+
+import model.Board;
+import model.Coordinates;
+import utils.NoSolutionException;
+
 public class MrvHeuristic implements Heuristic {
 
     public Coordinates findUnassignedCellCoordinates(Board board) {

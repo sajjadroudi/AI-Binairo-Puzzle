@@ -1,3 +1,9 @@
+import core.ProblemSolver;
+import model.Board;
+import model.Cell;
+import model.SolutionResult;
+import model.Value;
+
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.Scanner;
