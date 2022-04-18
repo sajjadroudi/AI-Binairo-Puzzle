@@ -6,7 +6,7 @@ public class Main {
 
     public static void main(String[] args) {
 
-        File input = new File("inputs/input2.txt");
+        File input = new File("inputs/input3.txt");
         Board board = null;
         try {
             Scanner reader = new Scanner(input);
@@ -31,8 +31,11 @@ public class Main {
         }
 
         ProblemSolver solver = new ProblemSolver();
+        long startTime = System.currentTimeMillis();
         SolutionResult result = solver.solve(board);
+        long diff = System.currentTimeMillis() - startTime;
         System.out.println(result);
+        System.out.println(diff);
     }
 
 }

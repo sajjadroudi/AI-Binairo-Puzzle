@@ -1,3 +1,5 @@
+import jdk.swing.interop.SwingInterOpUtils;
+
 public class ProblemSolver {
 
     private final ConstraintSatisfication[] constraints = {
@@ -14,23 +16,26 @@ public class ProblemSolver {
         if(board.isComplete())
             return SolutionResult.success(board);
 
-        var coordinates = mrvHeuristic.findUnassignedCellCoordinates(board);
-        int row = coordinates.getRow();
-        int col = coordinates.getCol();
+        try {
+            var coordinates = mrvHeuristic.findUnassignedCellCoordinates(board);
+            int row = coordinates.getRow();
+            int col = coordinates.getCol();
 
-        for(Value value : lcvHeuristic.findAppropriateValue(board, coordinates)) {
-            if(isConsistent(board, row, col, value)) {
-                board.setValue(row, col, value);
-                var boardCopy = board.copy();
-                boolean canContinue = forwardCheckingApplier.applyForwardChecking(boardCopy, coordinates);
-                if(canContinue) {
+            for(Value value : lcvHeuristic.findAppropriateValue(board, coordinates)) {
+                if(isConsistent(board, row, col, value)) {
+                    board.setValue(row, col, value);
+
+                    var boardCopy = board.copy();
                     var result = solve(boardCopy);
                     if(result.isSuccessful())
                         return result;
+
                 }
 
                 board.removeValue(coordinates.getRow(), coordinates.getCol());
             }
+        } catch (NoSolutionException ex) {
+            ex.printStackTrace();
         }
 
         return SolutionResult.failure();

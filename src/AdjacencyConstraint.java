@@ -17,24 +17,35 @@ public class AdjacencyConstraint implements ConstraintSatisfication {
     public boolean doesSatisfy(Board board) {
         for(int row = 0; row < board.sideCount(); row++) {
             for(int col = 0; col < board.sideCount(); col++) {
-                Set<Value> values = new HashSet<>();
+                int whiteCount = 0;
+                int blackCount = 0;
                 for(int i = 0; i <= maxAcceptableAdjacentCircles; i++) {
                     var value = board.getValueOrNull(row + i, col);
-                    if(value != null)
-                        values.add(value);
+                    if(value == null)
+                        continue;
+
+                    switch(value) {
+                        case WHITE -> whiteCount++;
+                        case BLACK -> blackCount++;
+                    }
                 }
 
-                if(values.size() == 1)
+                if(whiteCount > maxAcceptableAdjacentCircles || blackCount > maxAcceptableAdjacentCircles)
                     return false;
 
-                values.clear();
+                whiteCount = blackCount = 0;
                 for(int i = 0; i <= maxAcceptableAdjacentCircles; i++) {
                     var value = board.getValueOrNull(row, col + i);
-                    if(value != null)
-                        values.add(value);
+                    if(value == null)
+                        continue;
+
+                    switch(value) {
+                        case WHITE -> whiteCount++;
+                        case BLACK -> blackCount++;
+                    }
                 }
 
-                if(values.size() == 1)
+                if(whiteCount > maxAcceptableAdjacentCircles || blackCount > maxAcceptableAdjacentCircles)
                     return false;
             }
         }
