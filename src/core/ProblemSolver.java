@@ -37,10 +37,12 @@ public class ProblemSolver {
                     board.setValue(row, col, value);
 
                     var boardCopy = board.copy();
-                    var result = solve(boardCopy);
-                    if(result.isSuccessful())
-                        return result;
-
+                    boolean canContinue = forwardCheckingApplier.applyForwardChecking(boardCopy, coordinates);
+                    if(canContinue) {
+                        var result = solve(boardCopy);
+                        if(result.isSuccessful())
+                            return result;
+                    }
                 }
 
                 board.removeValue(coordinates.getRow(), coordinates.getCol());

@@ -51,7 +51,7 @@ public class Board {
     }
 
     public void removeValueFromDomain(int row, int col, Value value) {
-        if(isValidCoordinates(row, col)) {
+        if(isValidCoordinates(row, col) && !isDefault(row, col)) {
             board[row][col].removeFromDomain(value);
         }
     }
@@ -62,6 +62,10 @@ public class Board {
 
     public int getDomainSize(int row, int col) {
         return getDomain(row, col).length;
+    }
+
+    public boolean isDefault(int row, int col) {
+        return board[row][col].isDefault();
     }
 
     public boolean isComplete() {
@@ -79,7 +83,7 @@ public class Board {
         Board copy = new Board(sideCount());
         for(int row = 0; row < board.length; row++) {
             for(int col = 0; col < board[row].length; col++) {
-                copy.board[row][col] = board[row][col];
+                copy.board[row][col] = board[row][col].copy();
             }
         }
         return copy;

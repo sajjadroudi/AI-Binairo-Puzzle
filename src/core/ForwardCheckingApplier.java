@@ -37,7 +37,7 @@ public class ForwardCheckingApplier {
     private boolean haveAllCellsNonEmptyDomain(Board board) {
         for(int row = 0; row < board.sideCount(); row++) {
             for(int col = 0; col < board.sideCount(); col++) {
-                if(board.getDomainSize(row, col) == 0)
+                if(!board.isDefault(row, col) && board.getDomainSize(row, col) == 0)
                     return false;
             }
         }

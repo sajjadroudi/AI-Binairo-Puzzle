@@ -63,6 +63,17 @@ public class Cell {
         return domain.toArray(new Value[0]);
     }
 
+    public Cell copy() {
+        if(isDefault) {
+            return new Cell(currentValue);
+        } else {
+            var cell = new Cell();
+            cell.currentValue = currentValue;
+            cell.domain.addAll(domain);
+            return cell;
+        }
+    }
+
     @Override
     public String toString() {
         if(isDefault) {
