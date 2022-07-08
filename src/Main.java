@@ -41,7 +41,8 @@ public class Main {
         SolutionResult result = solver.solve(board);
         long diff = System.currentTimeMillis() - startTime;
         System.out.println(result);
-        System.out.println(diff);
+
+        System.out.println("Take " + diff + "ms to solve");
     }
 
 }

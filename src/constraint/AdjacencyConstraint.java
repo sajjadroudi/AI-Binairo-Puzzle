@@ -1,7 +1,6 @@
 package constraint;
 
 import model.Board;
-import model.Value;
 
 public class AdjacencyConstraint implements ConstraintSatisfication {
 
